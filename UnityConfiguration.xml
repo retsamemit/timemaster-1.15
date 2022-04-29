@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UnityConfiguration</name>
+    </assembly>
+    <members>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.UnityConfiguration.UnityConfig">
+            <summary>
+            Configuration of unity (dependency injection).
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.UnityConfiguration.UnityConfig.Resolve``1">
+            <summary>
+            Resolves an instance of an type.
+            </summary>
+            <typeparam name="T">The type to resolve.</typeparam>
+            <returns>The instance of the type.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.UnityConfiguration.UnityConfig.RegisterInstance``1(``0)">
+            <summary>
+            Registers an instance.
+            </summary>
+            <typeparam name="T">The type of the instance.</typeparam>
+            <param name="instance">The instance to register.</param>
+        </member>
+    </members>
+</doc>

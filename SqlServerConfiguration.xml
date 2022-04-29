@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SqlServerConfiguration</name>
+    </assembly>
+    <members>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.SqlServerConfiguration.TimemasterWeb.TmWebSqlServerInstance">
+            <summary>
+            The tm web sql server instance.
+            </summary>
+            <seealso cref="T:EQ3.Utils.SqlServer.SqlServerInstance" />
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.SqlServerConfiguration.TimemasterWeb.TmWebSqlServerInstance.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.SqlServerConfiguration.TimemasterWeb.TmWebSqlServerInstance" /> class.
+            </summary>
+            <param name="sqlServerInstanceName">The name of the SQL server instance. The name can be a named instance ([host]:[instance name])
+            or a default instance ([host]).</param>
+            <param name="databaseName">Name of the database.</param>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.SqlServerConfiguration.TimemasterWeb.TmWebSqlServerInstance.IsPredefinedAdministrativeUserExistingAsync">
+            <summary>
+            Determines whether [is predefined administrative user existing asynchronous].
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.SqlServerConfiguration.TimemasterWeb.TmWebSqlServerInstance.GetPredefinedAdministrativeUserNameAsync">
+            <summary>
+            Gets the name of the predefined administrative user.
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.SqlServerConfiguration.TimemasterWeb.TmWebSqlServerInstance.IsRecoveryAvailableAsync">
+            <summary>
+            Determines whether [is recovery available].
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.SqlServerConfiguration.TimemasterWeb.TmWebSqlServerInstance.CreateRecoveryEntriesAsync(System.String,System.String)">
+            <summary>
+            Creates the required recovery entries async.
+            </summary>
+            <param name="predefinedAdministrativeUserPassword">The predefined administrative user password.</param>
+            <param name="predefinedAdministrativeUserName">Name of the predefined administrative user.</param>
+            <returns>The task.</returns>
+        </member>
+    </members>
+</doc>

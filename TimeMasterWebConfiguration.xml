@@ -1,0 +1,791 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TimeMasterWebConfiguration</name>
+    </assembly>
+    <members>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityChecker">
+            <summary>
+            Checker to check the availability of the backend.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityChecker.Timeout">
+            <summary>
+            The timeout for the HTTP request of the check.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityChecker.GetBackendAvailability(System.Uri)">
+            <summary>
+            Gets the availability of the backend.
+            </summary>
+            <param name="backendUri">The backend URI.</param>
+            <returns>The backend availability.</returns>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityDto">
+            <summary>
+            Dto for detailed information about the availability of the backend.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityDto.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityDto"/> class.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityDto.AvailabilityType">
+            <summary>
+            Gets or sets the availability type.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityDto.CheckError">
+            <summary>
+            Gets or sets an error which occured during the availability check.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityDto.CheckResponseContent">
+            <summary>
+            Gets or sets the content of the check response message.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityDto.ServerCertificateValidationResult">
+            <summary>
+            Gets or sets the server certificate validation result (only available for https requests).
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityDto.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityType">
+            <summary>
+            Enumeration of availability types of the backend for a specific url.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityType.Unknown">
+            <summary>
+            The availability is unknown.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityType.Available">
+            <summary>
+            A frontend is available under the url.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityType.Unavailable">
+            <summary>
+            No frontend is available under the url.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityType.ReceiverAvailableButNoBackend">
+            <summary>
+            A receiver is available under the url, but no backend.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityType.ServerCannotStart">
+            <summary>
+            The backend server cannot start.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityType.Timeout">
+            <summary>
+            The availability check for the backend timed out.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Backend.BackendAvailabilityType.InvalidCertificate">
+            <summary>
+            The validation of the server certificate was not successful.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityChecker">
+            <summary>
+            Checker to check the availability of the frontend.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityChecker.Timeout">
+            <summary>
+            The timeout for the HTTP request of the check.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityChecker.GetFrontendAvailability(System.Uri)">
+            <summary>
+            Gets the availability of the frontend.
+            </summary>
+            <param name="frontendUri">The frontend URI.</param>
+            <returns>The frontend availability.</returns>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityDto">
+            <summary>
+            Dto for detailed information about the availability of the frontend.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityDto.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityDto"/> class.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityDto.AvailabilityType">
+            <summary>
+            Gets or sets the availability type.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityDto.CheckError">
+            <summary>
+            Gets or sets an error which occured during the availability check.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityDto.ServerCertificateValidationResult">
+            <summary>
+            Gets or sets the server certificate validation result (only available for https requests).
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityDto.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityType">
+            <summary>
+            Enumeration of availability types of the frontend for a specific url.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityType.Unknown">
+            <summary>
+            The availability is unknown.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityType.Available">
+            <summary>
+            A frontend is available under the url.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityType.Unavailable">
+            <summary>
+            No frontend is available under the url.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityType.ReceiverAvailableButNoFrontend">
+            <summary>
+            A receiver is available under the url, but no frontend.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityType.Timeout">
+            <summary>
+            The availability check for the frontend timed out.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.Frontend.FrontendAvailabilityType.InvalidCertificate">
+            <summary>
+            The validation of the server certificate was not successful.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.HttpClientForAvailabilityCheck">
+            <summary>
+            <see cref="T:System.Net.Http.HttpClient"/> for TMWeb availability checks.
+            </summary>
+            <see cref="T:System.IDisposable"/>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.HttpClientForAvailabilityCheck.#ctor(System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.HttpClientForAvailabilityCheck"/> class.
+            </summary>
+            <param name="timeout">The timespan to wait before the request times out.</param>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.HttpClientForAvailabilityCheck.SendAsync(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpCompletionOption)">
+            <summary>
+            Sends an HTTP request as an asynchronous operation (wraps <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)"/>).
+            </summary>
+            <param name="request">The HTTP request message to send.</param>
+            <param name="completionOption">
+            When the operation should complete (as soon as a response is available or after reading the whole response content).
+            </param>
+            <returns>The task object representing the asynchronous operation.</returns>
+            <exception cref="T:System.ArgumentNullException">The request is null.</exception>
+            <exception cref="T:System.InvalidOperationException">The request message was already sent by the <see cref="T:System.Net.Http.HttpClient"/> instance.</exception>
+            <exception cref="T:System.Net.Http.HttpRequestException">
+            The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout.
+            </exception>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.HttpClientForAvailabilityCheck.GetLatestServerCertificateValidationResult">
+            <summary>
+            Gets the latest server certificate validation result.
+            The value will be <b>null</b>, if no validation result is available.
+            </summary>
+            <returns>The validation result.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.HttpClientForAvailabilityCheck.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.ServerCertificateValidation.ServerCertificateValidationResultDto">
+            <summary>
+            Dto for the result of a server certificate validation result.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.ServerCertificateValidation.ServerCertificateValidationResultDto.WasSuccessful">
+            <summary>
+            Gets or sets a value indicating whether the validation was successful (<b>true</b>) or
+            not (<b>false</b>).
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.ServerCertificateValidation.ServerCertificateValidationResultDto.SslPolicyErrors">
+            <summary>
+            Gets or sets the policy error as <see cref="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.ServerCertificateValidation.ServerCertificateValidationResultDto.SslPolicyErrors"/> (none is available as value of the enum).
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.ServerCertificateValidation.ServerCertificateValidationResultDto.StatusInformation">
+            <summary>
+            Gets or sets possible X509 chain status and error information.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.ServerCertificateValidation.X509ChainStatusForAvailabilityCheck">
+            <summary>
+            Provides a simple structure for storing X509 chain status and error information.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.ServerCertificateValidation.X509ChainStatusForAvailabilityCheck.#ctor(System.Security.Cryptography.X509Certificates.X509ChainStatus)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.ServerCertificateValidation.X509ChainStatusForAvailabilityCheck"/> class.
+            </summary>
+            <param name="chainStatus">The <see cref="T:System.Security.Cryptography.X509Certificates.X509ChainStatus"/> to import.</param>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.ServerCertificateValidation.X509ChainStatusForAvailabilityCheck.Status">
+            <summary>
+            Gets or sets the status of the X509 chain.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Availability.ServerCertificateValidation.X509ChainStatusForAvailabilityCheck.LocalizedInformation">
+            <summary>
+            Gets or sets a description of the <see cref="P:System.Security.Cryptography.X509Certificates.X509Chain.ChainStatus"/> value as localizable string.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigJsonContent">
+            <summary>
+            JSON content of the config.json file
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigJsonContent.WebapiHost">
+            <summary>
+            Gets or sets the "webapiHost" setting.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants">
+            <summary>
+            Constants for reading / writing configuration files.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.UserConfig_AppSettings">
+            <summary>
+            The "appSettings" constant for User.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.UserConfig_Add">
+            <summary>
+            The "add" constant for User.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.UserConfig_Key">
+            <summary>
+            The "key" constant for User.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.UserConfig_Value">
+            <summary>
+            The "key" constant for User.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.UserConfig_WebServerAdress">
+            <summary>
+            The "WebServerAdress" constant for User.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.UserConfig_EnablePlus6Sync">
+            <summary>
+            The "EnablePlus6Sync" constant for User.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.UserConfig_Plus6SyncUser">
+            <summary>
+            The "Plus6SyncUser" constant for User.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.UserConfig_Plus6SyncPassword">
+            <summary>
+            The "Plus6SyncPassword" constant for User.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.UserConfig_Plus7SyncApiKey">
+            <summary>
+            The "Plus7SyncApiKey" constant for User.config.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.GetUserConfigKeys">
+            <summary>
+            Gets the possible keys of the user.config.
+            </summary>
+            <returns>The possible keys.</returns>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.ConnectionStringsConfig_Root">
+            <summary>
+            The root element of ConnectionStrings.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.ConnectionStringsConfig_Add">
+            <summary>
+            The element with a database connection in ConnectionStrings.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.ConnectionStringsConfig_AddName">
+            <summary>
+            The attribute for the name of the added connection string in ConnectionStrings.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.ConnectionStringsConfig_RelevantConnection">
+            <summary>
+            The relevant connection to parse in ConnectionStrings.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.ConnectionStringsConfig_ConnectionStringAttribute">
+            <summary>
+            The attribite for the connection string in ConnectionStrings.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.Log4NetConfig_Root">
+            <summary>
+            The root element of Log4Net.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.Log4NetConfig_AppenderElementName">
+            <summary>
+            The element name of an appender of Log4Net.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.Log4NetConfig_AppenderTypeElementName">
+            <summary>
+            The element name of the appender type of Log4Net.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.Log4NetConfig_RollingFileAppenderName">
+            <summary>
+            The name of the rolling file appender of Log4Net.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.Log4NetConfig_RollingFileAppenderFileElementName">
+            <summary>
+            The element name of the file of the rolling file appender of Log4Net.config.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.ConfigurationFileConstants.Log4NetConfig_RollingFileAppenderFileValue">
+            <summary>
+            The element name of the file value of the rolling file appender of Log4Net.config.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringConfiguration">
+            <summary>
+            Configuration of the connection strings of TimeMaster Web.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringConfiguration.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringConfiguration.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringConfiguration.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringConfiguration.DataSource">
+            <summary>
+            Gets the "DataSource" / server property of the connection string.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringConfiguration.InitialCatalog">
+            <summary>
+            Gets the "InitialCatalog" / database property of the connection string.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringConfiguration.IntegratedSecurity">
+            <summary>
+            Gets the "Integrated Security" property of the connection string.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringConfiguration.UserId">
+            <summary>
+            Gets the "User Id" property of the connection string.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringConfiguration.Password">
+            <summary>
+            Gets the "Password" property of the connection string.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType">
+            <summary>
+            Enumeration of key types of a key value pair of a connection string.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType.Unknown">
+            <summary>
+            The key is referring to an unknwown setting.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType.DataSource">
+            <summary>
+            The key is referring to the data source setting.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType.InitialCatalog">
+            <summary>
+            The key is referring to the initial catalog setting.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType.UserId">
+            <summary>
+            The key is referring to the user id setting.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType.Password">
+            <summary>
+            The key is referring to the password setting.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType.IntegratedSecurity">
+            <summary>
+            The key is referring to the integrated security bool setting.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType.ConnectTimeout">
+            <summary>
+            The key is referring to the connect timeout setting.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType.TrustedConnection">
+            <summary>
+            The key is referring to the trusted connection setting.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyUtils">
+            <summary>
+            Constants for keys of a connection string.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyUtils.DataSource">
+            <summary>
+            The "Data Source" key.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyUtils.InitialCatalog">
+            <summary>
+            The "Initial Catalog" key.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyUtils.IntegratedSecurity">
+            <summary>
+            The "Integrated Security" key.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyUtils.UserId">
+            <summary>
+            The "User ID" key.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyUtils.Password">
+            <summary>
+            The "Password" key.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyUtils.ConnectTimeout">
+            <summary>
+            The "Password" key.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyUtils.TrustedConnection">
+            <summary>
+            The "Trusted_Connection" key.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyUtils.FromString(System.String)">
+            <summary>
+            Generates a <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType"/> from a <see cref="T:System.String"/>.
+            </summary>
+            <param name="str">The string to convert.</param>
+            <returns>The generated <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType"/>.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyUtils.IsKeyMapped(System.String)">
+            <summary>
+            Gets a value indicating whether a key as <see cref="T:System.String" /> is mapped (<b>true</b>) or
+            not (<b>false</b>).
+            </summary>
+            <param name="keyAsString">The key as <see cref="T:System.String" />.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyUtils.ToString(EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType)">
+            <summary>
+            Generates a <see cref="T:System.String"/> from a <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType"/>.
+            </summary>
+            <param name="connectionStringKeyType">The <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType"/> to convert.</param>
+            <returns>The generated string.</returns>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyValuePair">
+            <summary>
+            Key value pair of a connection string.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyValuePair.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyValuePair"/> class.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyValuePair.Key">
+            <summary>
+            Gets or sets the key.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyValuePair.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyValuePair.KeyType">
+            <summary>
+            Gets the key as <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyType"/>.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.ConnectionStringKeyValuePair.IsKeyTypeKnown">
+            <summary>
+            Gets a value indicating whether the key is known (<b>true</b>) or
+            not (<b>false</b>).
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.DatabaseConfiguration">
+            <summary>
+            Configuration of the database for TimeMaster Web.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.DatabaseConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.DatabaseConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Database.DatabaseConfiguration.ConnectionStringConfiguration">
+            <summary>
+            Gets or sets the connection string configuration.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration">
+            <summary>
+            Configuration data of TimeMaster Web.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.TimemasterWebInstallation">
+            <summary>
+            Gets the Timemaster Web installation.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.#ctor(EQ3.TMWeb.Shared.Installation.TimeMasterWebInstallation)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration"/> class.
+            </summary>
+            <param name="timeMasterWebInstallation">The time master web installation.</param>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.UrlConfiguration">
+            <summary>
+            Gets or sets the URL configuration.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.Plus6SyncConfiguration">
+            <summary>
+            Gets or sets the plus6 sync configuration.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.Plus7SyncConfiguration">
+            <summary>
+            Gets or sets the plus6 sync configuration.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.DatabaseConfiguration">
+            <summary>
+            Gets or sets the database configuration.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.LogConfiguration">
+            <summary>
+            Gets or sets the log configuration.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.ReadConfigurationAsync">
+            <summary>
+            Reads the configuration of the TimeMaster Web installation asynchronous.
+            </summary>
+            <returns>The task.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.HandleConfigJsMigrationAsync">
+            <summary>
+            Handles the migration from config.js to config.json.
+            If the config.js file is existing, the configured backend url will be migrated to the
+            config.json file.
+            If the file config.js file is not existing, no action will be performed.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.RestoreDeletedConfigJsonAfter1Dot9DeinstallationAsync">
+            <summary>
+            Tries to restore the config.json after deinstallation of version 1.9 async.
+            If config.json file is existing or deprecated.config.js is not existing, nothing will be done.
+            </summary>
+            <returns>The task.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.EnsureExistingConfigJson">
+            <summary>
+            Ensures that the config file "config.json" is existing async.
+            </summary>
+            <returns>The task.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.IsConfigJsonContainingDefaults">
+            <summary>
+            Gets or sets a value indicating whether the config json file of the installation contains its defaults (<b>true</b>)
+            or not (<b>false</b>).
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.ReadBackendUriFromConfigJsAsync(System.IO.FileInfo)">
+            <summary>
+            Reads the URI of the backend from a config.js file async.
+            </summary>
+            <param name="customConfigJs">
+            The custom path of the config.js file.
+            If the value is <b>null</b>, the file from the TMWeb installation will be used.
+            </param>
+            <returns>The read uri.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.WriteConfigJsonAsync">
+            <summary>
+            Writes the "config.json" file based on the current configuration.
+            </summary>
+            <returns>The task.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.WriteUserConfigAsync">
+            <summary>
+            Writes the "User.config" file based on the current configuration.
+            </summary>
+            <returns>The task.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.WriteConnectionStringsConfigAsync">
+            <summary>
+            Writes the "ConnectionString.config" file based on the current configuration.
+            </summary>
+            <returns>The task.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.FullConfiguration.ConfigureComponentPathsAsync(System.String,System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Configures the urls of the backend and the frontend based on a protocol
+            and a port.
+            </summary>
+            <param name="authority">The authority of the uri without port information for frontend and backend.</param>
+            <param name="frontendProtocol">The frontend protocol.</param>
+            <param name="frontendPort">The frontend port.</param>
+            <param name="backendProtocol">The backend protocol.</param>
+            <param name="backendPort">The backend port.</param>
+            <returns>The task.</returns>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.LogConfiguration">
+            <summary>
+            Logging configuration of components of Timemaster Web.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.LogConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.LogConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.LogConfiguration.BackendApplicationLogDirectories">
+            <summary>
+            Gets or sets the directories for the application logs of the backend.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.LogConfiguration.BackendRequestLogDirectories">
+            <summary>
+            Gets or sets the directories for the request logs of the backend.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Plus6SyncConfiguration">
+            <summary>
+            Configuration of the plus6 sync settings of TimeMaster Web.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Plus6SyncConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Plus6SyncConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Plus6SyncConfiguration.IsPlus6SyncEnabled">
+            <summary>
+            Gets or sets a value indicating whether the plus6 sync is enabled (<b>true</b>) or
+            not (<b>false</b>).
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Plus6SyncConfiguration.Username">
+            <summary>
+            Gets or sets the username.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Plus6SyncConfiguration.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Plus7SyncConfiguration">
+            <summary>
+            Configuration of the plus7 sync settings of TimeMaster Web.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Plus7SyncConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Plus7SyncConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.Plus7SyncConfiguration.ApiKey">
+            <summary>
+            Gets or sets the API key.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.UrlConfiguration">
+            <summary>
+            Configuration of the URLs of TimeMaster Web.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.UrlConfiguration.DefaultBackendUri">
+            <summary>
+            The default value for the backend uri.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.UrlConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.UrlConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.UrlConfiguration.FrontendUri">
+            <summary>
+            Gets or sets the frontend URL.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Configuration.UrlConfiguration.BackendUri">
+            <summary>
+            Gets or sets the backend URL.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Utils.Log4NetConfigUtils">
+            <summary>
+            Utils for config files of log4net.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.TimeMasterWebConfiguration.Utils.Log4NetConfigUtils.GetLogFileDirectoriesOfFileApenders(System.IO.FileInfo)">
+            <summary>
+            Gets the log file directories of the file apenders of a log4net configuration file.
+            </summary>
+            <param name="configurationFile">The log4net configuration file.</param>
+            <returns>The log file directories.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,558 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IisConfiguration</name>
+    </assembly>
+    <members>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.Certificate">
+            <summary>
+            Certificate representation.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.Certificate.Issuer">
+            <summary>
+            Gets the issuer.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.Certificate.CertificateHash">
+            <summary>
+            Gets the certificate hash.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.Certificate.ExpiryDate">
+            <summary>
+            Gets the expiry date.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.Certificate.Name">
+            <summary>
+            Gets the name.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.Certificate.CertificateStore">
+            <summary>
+            Gets the certificate store.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.Certificate.Subjects">
+            <summary>
+            Gets or sets the subjects.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.ConfigurationValues">
+            <summary>
+            Class for holding the configuration values.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.ConfigurationValues.AppPoolName">
+            <summary>
+            The name of the Timemaster app pool.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.ConfigurationValues.FrontendPath">
+            <summary>
+            The application path of the frontend.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.ConfigurationValues.BackendPath">
+            <summary>
+            The application path of the backend.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.ConfigurationValues.SiteName">
+            <summary>
+            The Timemaster Web site name.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.ConfigurationValues.IisWwwRoot">
+            <summary>
+            The IIS WWW root.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSite">
+            <summary>
+            Represents an IIS site with its applications.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSite.Name">
+            <summary>
+            Gets the name of the IIS site.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSite.Bindings">
+            <summary>
+            Gets the bindings of an IIS site.
+            </summary>
+            <value>
+            The bindings.
+            </value>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSite.IsOnline">
+            <summary>
+            Gets a value indicating whether an IIS site is online.
+            </summary>
+            <value>
+              <c>true</c> if IIS site is online; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSite.ApplicationPaths">
+            <summary>
+            Gets the paths of the applications of an IIS site.
+            </summary>
+            <value>
+            The application paths.
+            </value>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSite.IsValid">
+            <summary>
+            Returns true if the IIS site is valid. If site is not valid it will only be insured that the name is filled.
+            Other values may be null or not initialised, even though it could be possible to get values for this properties.
+            </summary>
+            <value>
+              <c>true</c> if this instance is valid; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSite.#ctor(System.String,System.Collections.Generic.IEnumerable{EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSiteBinding},System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSite" /> class with its properties.
+            </summary>
+            <param name="name">The name of the IIS site.</param>
+            <param name="bindings">The bindings of an IIS site.</param>
+            <param name="isOnline">if set to <c>true</c> [IIS site is online].</param>
+            <param name="applicationPaths">The paths of the applications of an IIS site.</param>
+            <param name="isValid">if set to <c>true</c> [is valid].</param>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSiteBinding">
+            <summary>
+            This class represents a binding of an IIS site.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSiteBinding.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSiteBinding"/> class.
+            </summary>
+            <param name="protocol">The protocol.</param>
+            <param name="bindingInformation">The binding information.</param>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSiteBinding.Protocol">
+            <summary>
+            Gets the protocol type of an binding of a IIS site.
+            </summary>
+            <value>
+            The protocol.
+            </value>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.IisSiteBinding.BindingInformation">
+            <summary>
+            Gets the binding information of a IIS site.
+            </summary>
+            <value>
+            The binding information.
+            </value>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.Protocol">
+            <summary>
+            Enumeration of supported protocols.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.Protocol.Http">
+            <summary>
+            The HTTP
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.Protocol.Https">
+            <summary>
+            The HTTPS
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.ProtocolConverter">
+            <summary>
+            Converter class from protocol to protocol string.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.ProtocolConverter.ConvertToProtocolString(EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.Protocol)">
+            <summary>
+            Converts Protocol enum value to protocol string.
+            </summary>
+            <param name="protocol">The protocol.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator">
+            <summary>
+            A IIS configurator for the Timemaster Web components (frontend + backend).
+            </summary>
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator"/> class.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator.AddTimeMasterWithDefaultSite(System.String,System.String,EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.Protocol,System.Int32,System.Collections.Generic.IEnumerable{System.Byte},System.String)">
+            <summary>
+            Adds the time master frontend and backend applications to the specified paths at the default site which will be created at the given port.
+            </summary>
+            <param name="physicalPathBackend">The physical path backend.</param>
+            <param name="physicalPathFrontend">The physical path frontend.</param>
+            <param name="protocol">The protocol.</param>
+            <param name="port">The port.</param>
+            <param name="certificateHash">The certificate hash.</param>
+            <param name="certificateStore">The certificate store.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator.AddTimemasterWebApplicationPool">
+            <summary>
+            Adds the timemaster web application pool. If there is an existing app pool with name <see cref="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.ConfigurationValues.AppPoolName"/>,
+            this app pool will be reconfigured.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator.AddFrontend(System.String,System.String)">
+            <summary>
+            Adds the frontend application to a specific site name and physical path.
+            </summary>
+            <param name="siteName">Name of the site where the frontend will be added.</param>
+            <param name="physicalPath">The physical path to the frontend application.</param>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator.AddBackend(System.String,System.String)">
+            <summary>
+            Adds the backend application to a specific site name and physical path.
+            </summary>
+            <param name="siteName">Name of the site where the backend will be added.</param>
+            <param name="physicalPath">The physical path to the backend application.</param>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator.LoadCertificateFileIntoStore(System.String,System.String)">
+            <summary>
+            Loads the certificate into the personal cert store of local machine. If the cert is already there, nothing happens.
+            </summary>
+            <param name="filename">The filename.</param>
+            <param name="password">The password.</param>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator.GetAllCertsFromIisStores">
+            <summary>
+            Gets all certificates from the personal cert store and webhosting store of local machine.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator.GetIisSites">
+            <summary>
+            Gets the IIS sites.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator.RestartAppPool">
+            <summary>
+            Restarts the application pool.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Configuration.TimeMasterIisConfigurator.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Dism.DismCliUtils">
+            <summary>
+            Utils for cli handling of dism.exe.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Dism.DismCliUtils.GetDismExeFilePath">
+            <summary>
+            Gets the dism executable file path.
+            </summary>
+            <returns>The dism executable file path.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Dism.DismCliUtils.StartDismProcess(System.String,System.Boolean)">
+            <summary>
+            Starts a dism process with no window and redirected standard output.
+            </summary>
+            <param name="arguments">The arguments.</param>
+            <param name="isShowingCliWindow">
+            A value indicating whether to show a cli window (<b>true</b>) or
+            not (<b>false</b>).
+            </param>
+            <returns>
+            The started dism process.
+            </returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Dism.DismCliUtils.GetFeatureActivationFromDismFeatureInfo(System.String,System.Boolean@)">
+            <summary>
+            Gets the Windows feature activation status from a dism feature information.
+            </summary>
+            <param name="dismFeatureInfo">The dism feature information.</param>
+            <param name="isRestartRequired">
+            A value indicating whether a restart is currently required (<b>true</b>) or not (<b>false</b>).
+            </param>
+            <returns>The Windows feature activation status.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Dism.DismCliUtils.GetDismArgumentsForFeatureActivationCall(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Gets the dism arguments for the dism feature activation call.
+            </summary>
+            <param name="necessaryIisWindowsFeatures">The necessary IIS windows features the dism arguments are requested for.</param>
+            <returns>The dism arguments.</returns>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Dism.DismHandler">
+            <summary>
+            Handler for dism usage.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Dism.DismHandler.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Dism.DismHandler"/> class.
+            </summary>
+        </member>
+        <member name="E:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Dism.DismHandler.ProgressChanged">
+            <summary>
+            Occurs when the progress of a dism execution changed.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Dism.DismHandler.IsProgressAvailable">
+            <summary>
+            Gets a value indicating whether progress events will be generated (<b>true</b>) or
+            not (<b>false</b>).
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Dism.DismHandler.GetWindowsFeaturesActivationStateAsync(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Gets a value indicating whether an enumeration of Windows features are enabled (<b>true</b>)
+            or not (<b>false</b>).
+            </summary>
+            <param name="windowsFeatures">The windows features.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Dism.DismHandler.ActivateFeaturesAsync(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Activates an enumeration of Windows features via dism.
+            </summary>
+            <param name="featureNames">The names of the features.</param>
+            <returns>
+            A value indicating whether a restart is required (<b>true</b>) or not (<b>false</b>).
+            </returns>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.DismFeatureActivationResultType">
+            <summary>
+            Enumeration of a result of an activation of an enumeration of Windows features.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.DismFeatureActivationResultType.Successful">
+            <summary>
+            The feature activation was successful.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.DismFeatureActivationResultType.Failed">
+            <summary>
+            The feature activation has failed.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.DismFeatureActivationResultType.SuccessfulWithRestartRequired">
+            <summary>
+            The feature activation was successful but a restart of the system is required.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.DismFeatureActivationResultType.DismCouldNotBeInitialized">
+            <summary>
+            Dism could not be initialized (e.g. because of missing privileges).
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.DismFeatureActivationStateType">
+            <summary>
+            Enumeration of a result of reading the activity state of an enumeration of Windows features.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.DismFeatureActivationStateType.AllFeaturesAreEnabled">
+            <summary>
+            All features are activated.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.DismFeatureActivationStateType.AtLeastOneFeatureIsNotEnabled">
+            <summary>
+            At least one feature is not enabled.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.DismFeatureActivationStateType.Failed">
+            <summary>
+            The read of the activity states of the features could not be executed successfully
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.DismFeatureActivationStateType.RestartIsRequired">
+            <summary>
+            A restart of the system is required.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.DismFeatureActivationStateType.DismCouldNotBeInitialized">
+            <summary>
+            Dism could not be initialized (e.g. because of missing privileges).
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.IisFeatureManager">
+            <summary>
+            Class for managing (get / set) the Windows features related to the IIS.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.IisFeatureManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.IisFeatureManager"/> class.
+            </summary>
+        </member>
+        <member name="E:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.IisFeatureManager.ProgressChanged">
+            <summary>
+            Occurs when the progress of a dism execution changed.
+            </summary>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.IisFeatureManager.IsProgressAvailable">
+            <summary>
+            Gets a value indicating whether progress events will be generated (<b>true</b>) or
+            not (<b>false</b>).
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.IisFeatureManager.GetWindowsFeaturesActivationStateAsync">
+            <summary>
+            Gets a value indicating whether all Windows features related to the IIS are set (<b>true</b>)
+            or not (<b>false</b>).
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Features.IisFeatureManager.ActivateAllIisFeaturesAsync">
+            <summary>
+            Activates all Windows features related to the IIS.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.StartManager.IisManagerStarter">
+            <summary>
+            A class to start the IIS Manager.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.StartManager.IisManagerStarter.StartIisManager">
+            <summary>
+            Starts the IIS Manager.
+            </summary>
+            <returns>The result code.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.StartManager.IisManagerStarter.GetIisManagerExecutable">
+            <summary>
+            Gets the executable of the IIS manager.
+            If the file cannot be found <b>null</b> will be returned.
+            </summary>
+            <returns>The executable of the IIS manager.</returns>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.StartManager.StartIisManagerStatusType">
+            <summary>
+            Represents the status of the IIS Manager start.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.StartManager.StartIisManagerStatusType.Success">
+            <summary>
+            The IIS manager was started successfully.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.StartManager.StartIisManagerStatusType.ExecutionFileNotAvailable">
+            <summary>
+            The execution file of the IIS manager is not available.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.StartManager.StartIisManagerStatusType.InternalError">
+            <summary>
+            An internal error occured while starting.
+            </summary>
+        </member>
+        <member name="F:EQ3.TMWeb.ConfigurationTool.IisConfiguration.StartManager.StartIisManagerStatusType.MissingIisFeature">
+            <summary>
+            The IIS feature is missing.
+            </summary>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.EnumExtensionMethods">
+            <summary>
+            Enum extension methods to get string value of StringValueAnnotation.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.EnumExtensionMethods.GetStringValue(System.Enum)">
+            <summary>
+            Will get the string value for a given enums value, this will
+            only work if you assign the StringValue attribute to
+            the items in your enum.
+            </summary>
+            <param name="value">The enum value</param>
+            <returns>The string value.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.EnumExtensionMethods.GetEnumByStringValue(System.Type,System.String)">
+            <summary>
+            Gets the enum by string value.
+            </summary>
+            <param name="targetType">Type of the target.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.ProcessUtils">
+            <summary>
+            Utils for handling with processes.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.ProcessUtils.StartProcessWithNoWindow(System.IO.FileInfo,System.String)">
+            <summary>
+            Starts a process with no window. The standard output will be redirected.
+            </summary>
+            <param name="filename">The file info of the process to start.</param>
+            <param name="arguments">The arguments to use for starting the process.</param>
+            <returns>The started process.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.ProcessUtils.StartProcessWithCliWindow(System.IO.FileInfo,System.String)">
+            <summary>
+            Starts a process with cli window. The standard output will not be redirected.
+            </summary>
+            <param name="filename">The file info of the process to start.</param>
+            <param name="arguments">The arguments to use for starting the process.</param>
+            <returns>The started process.</returns>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.ProcessUtils.WaitForExitAsync(System.Diagnostics.Process,System.Threading.CancellationToken)">
+            <summary>
+            Waits asynchronously for the process to exit.
+            </summary>
+            <param name="process">The process to wait for cancellation.</param>
+            <param name="cancellationToken">A cancellation token. If invoked, the task will return immediately as canceled.</param>
+            <returns>A Task representing waiting for the process to end.</returns>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.ProgressEventArgs">
+            <summary>
+            Event arguments for progress.
+            </summary>
+            <seealso cref="T:System.EventArgs" />
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.ProgressEventArgs.ProgressInPercent">
+            <summary>
+            Gets the progress in percent of the execution (0.5 = 50%).
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.ProgressEventArgs.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.ProgressEventArgs" /> class.
+            </summary>
+            <param name="progressInPercent">The progress in percent (0.5 = 50%).</param>
+        </member>
+        <member name="T:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.StringValueAttribute">
+            <summary>
+            This attribute is used to represent a string value
+            for a value in an enum.
+            </summary>
+        </member>
+        <member name="M:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.StringValueAttribute.#ctor(System.String)">
+            <summary>
+            Constructor used to init a StringValue Attribute
+            </summary>
+            <param name="value">The string value.</param>
+        </member>
+        <member name="P:EQ3.TMWeb.ConfigurationTool.IisConfiguration.Utils.StringValueAttribute.Value">
+            <summary>
+            Holds the stringvalue for a value in an enum.
+            </summary>
+        </member>
+    </members>
+</doc>
